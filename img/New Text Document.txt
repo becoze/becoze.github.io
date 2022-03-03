@@ -1,0 +1,4 @@
+LM7 size 0
+T5 size move botton right
+index size -2
+jp size 0
