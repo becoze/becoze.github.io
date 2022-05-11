@@ -1,0 +1,360 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Python x Excel | Becoze's Blog</title><meta name="keywords" content="Tutorial,Python,Excel"><meta name="author" content="Becoze,liyuanliang20@outlook.com"><meta name="copyright" content="Becoze"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="80 20 probelm are the common problem for data scientists, states that 80% of the time is spent on checking, cleaning, and reorganizing datas. This article describes some simple techniques to help you">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python x Excel">
+<meta property="og:url" content="https://becoze.github.io/2022/05/07/Ptyhon%20x%20Excel/index.html">
+<meta property="og:site_name" content="Becoze&#39;s Blog">
+<meta property="og:description" content="80 20 probelm are the common problem for data scientists, states that 80% of the time is spent on checking, cleaning, and reorganizing datas. This article describes some simple techniques to help you">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/becoze/becozePictureHosting/main/blogPost/pythonExcel/pythonExcel.png">
+<meta property="article:published_time" content="2022-05-06T14:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-11T11:24:54.040Z">
+<meta property="article:author" content="Becoze">
+<meta property="article:tag" content="Tutorial">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Excel">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/becoze/becozePictureHosting/main/blogPost/pythonExcel/pythonExcel.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://becoze.github.io/2022/05/07/Ptyhon%20x%20Excel/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":150},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"Traditional Chinese Activated Manually","cht_to_chs":"Simplified Chinese Activated Manually","day_to_night":"Dark Mode Activated Manually","night_to_day":"Light Mode Activated Manually","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Python x Excel',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-05-11 21:24:54'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/style.css"><meta name="generator" content="Hexo 6.0.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raw.githubusercontent.com/becoze/becozePictureHosting/main/img/profile_img.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">4</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">9</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-hdd"></i><span> Index</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user-circle"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raw.githubusercontent.com/becoze/becozePictureHosting/main/blogPost/pythonExcel/pythonExcel.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Becoze's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-hdd"></i><span> Index</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user-circle"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Python x Excel</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-05-06T14:00:00.000Z" title="Created 2022-05-07 00:00:00">2022-05-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-05-11T11:24:54.040Z" title="Updated 2022-05-11 21:24:54">2022-05-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Python/">Python</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">886</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>5min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Python x Excel"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p>You can always refer to this LinkedIn Learning Video <a target="_blank" rel="noopener" href="https://www.linkedin.com/learning/using-python-with-excel">Using Pythion with Excel</a>.</p>
+</blockquote>
+<h1 id="Install-Python-Interpreter"><a href="#Install-Python-Interpreter" class="headerlink" title="Install Python Interpreter"></a>Install Python Interpreter</h1><p>&lt;5 minutes</p>
+<p>Interpreter in computer are necessary in every programming, like it’s name, it “<em>translate</em>“ our human readable code into 0 and 1 computer readable “<em>language</em>“. </p>
+<ol>
+<li>Download Python interpreter from <a target="_blank" rel="noopener" href="https://www.python.org/downloads/">python.org</a>, for this case 3.10.4 is the newest case.</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/becoze/becozePictureHosting/main/blogPost/pythonExcel/pythonDownload.png" alt="Python Download"></p>
+<ol start="2">
+<li>Run .exe file, use default download options.</li>
+<li>You need a Python IDE (Integrated Development Environment) or a code editor to write code. Recommended using IDE. <ul>
+<li>Windows OS: JetBrains PyCharm, VS Code </li>
+<li>MacOS: JetBrains PyCharm, VS Code, Komodo, Atom</li>
+</ul>
+</li>
+</ol>
+<h1 id="Python-“Pandas”-Basic"><a href="#Python-“Pandas”-Basic" class="headerlink" title="Python “Pandas” Basic"></a>Python “Pandas” Basic</h1><p><strong>Pandas library</strong> - primarily used in data science, provide Python function, statement that make Excel sorting, examining and modifying very easy. </p>
+<blockquote>
+<p>You can always refer to <a target="_blank" rel="noopener" href="https://pandas.pydata.org/docs/reference/index.html">Pandas Official API Document</a>, and <a target="_blank" rel="noopener" href="https://pandas.pydata.org/docs/user_guide/index.html">Pandas Official User Guide</a>.</p>
+</blockquote>
+<h2 id="Install-Pandas"><a href="#Install-Pandas" class="headerlink" title="Install Pandas"></a>Install Pandas</h2><ol>
+<li>Open command prompt: <ol>
+<li>press “Windows <i class='fab fa-windows fa-lg'>fa-lg</i>“ </li>
+<li>Search “cmd” and press “Enter”</li>
+</ol>
+</li>
+<li>Install Python Pandas: in command prompt type <code>py -m pip install pandas </code> </li>
+<li>Import Pandas: in command prompt  <code>py</code>, then <code>import pandas</code></li>
+</ol>
+<h2 id="Import-“Pandas”"><a href="#Import-“Pandas”" class="headerlink" title="Import “Pandas”"></a>Import “Pandas”</h2><p>Import Pandas library that we can use it’s function and statement. For example the one we used next step <code>pd.read_csv</code>.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> openpyx1.workbook <span class="keyword">import</span> Workbook </span><br></pre></td></tr></table></figure>
+
+<h2 id="Loading-and-saving-data"><a href="#Loading-and-saving-data" class="headerlink" title="Loading and saving data"></a>Loading and saving data</h2><p>Lode excel and txt data into Python data frame to be able to work on it. </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df_excel = pd.read_excel(<span class="string">&#x27;regions.xlsx&#x27;</span>)			<span class="comment"># upload Excel file; </span></span><br><span class="line">df_csv = pd.read_csv(<span class="string">&#x27;Names.csv&#x27;</span>, header=<span class="literal">None</span>)    	<span class="comment"># upload csv file; 	Use &quot;header=None&quot; syntax if the datasheet has no header</span></span><br><span class="line">df_txt = pd.read_csv(<span class="string">&#x27;data.txt&#x27;</span>, delimiter=<span class="string">&#x27;\t&#x27;</span>)	<span class="comment"># upload text file; Use &quot;delimiter=&#x27;\t&quot; syntax when loading txt file </span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<ul>
+<li><code>df</code> short for Data Frame</li>
+<li>Use <code>.read_csv</code> for both <code>.csv</code> and <code>.txt</code> file, because <code>.csv</code> and <code>.txt</code> are very similar in terms how they column their data.</li>
+</ul>
+</blockquote>
+<p>Save as the modified file into a new Excel file. <strong>The saving step will be omitted in subsequent presentations.</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df_csv.to.excel(&#x27;modified.xlsx&#x27;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="Python-“Pandas”-in-practices"><a href="#Python-“Pandas”-in-practices" class="headerlink" title="Python “Pandas” in practices"></a>Python “Pandas” in practices</h1><h2 id="Add-header-for-data-sheet"><a href="#Add-header-for-data-sheet" class="headerlink" title="Add header for data sheet"></a>Add header for data sheet</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df_csv = pd.read_csv(<span class="string">&#x27;Names.csv&#x27;</span>, header=<span class="literal">None</span>)	<span class="comment"># load csv file</span></span><br><span class="line">df_csv.columns = [<span class="string">&#x27;First&#x27;</span>,<span class="string">&#x27;Last&#x27;</span>,<span class="string">&#x27;Address&#x27;</span>,<span class="string">&#x27;City&#x27;</span>,<span class="string">&#x27;State&#x27;</span>,<span class="string">&#x27;Postcode&#x27;</span>] <span class="comment"># defien the name for each columns</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/becoze/becozePictureHosting/main/blogPost/pythonExcel/addHeaders.png" alt="addHeader"></p>
+<h2 id="View-number-of-column-selectively"><a href="#View-number-of-column-selectively" class="headerlink" title="View number of column selectively"></a>View number of column selectively</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">&#x27;Names.csv&#x27;</span>, header=<span class="literal">None</span>)	<span class="comment"># load csv file</span></span><br><span class="line">df_csv.columns = [<span class="string">&#x27;First&#x27;</span>,<span class="string">&#x27;Last&#x27;</span>,<span class="string">&#x27;Address&#x27;</span>,<span class="string">&#x27;City&#x27;</span>,<span class="string">&#x27;State&#x27;</span>,<span class="string">&#x27;Postcode&#x27;</span>]</span><br><span class="line">wanted_values = df[[<span class="string">&#x27;First&#x27;</span>,<span class="string">&#x27;Last&#x27;</span>,<span class="string">&#x27;Post Code&#x27;</span>]]</span><br><span class="line"></span><br><span class="line"><span class="comment"># or </span></span><br><span class="line">df = pd.read_csv(<span class="string">&#x27;Names.csv&#x27;</span>, header=<span class="literal">None</span>)	<span class="comment"># load csv file</span></span><br><span class="line">df_csv.columns = [<span class="string">&#x27;First&#x27;</span>,<span class="string">&#x27;Last&#x27;</span>,<span class="string">&#x27;Address&#x27;</span>,<span class="string">&#x27;City&#x27;</span>,<span class="string">&#x27;State&#x27;</span>,<span class="string">&#x27;Postcode&#x27;</span>]</span><br><span class="line">df.drop = [<span class="string">&#x27;Address&#x27;</span>,<span class="string">&#x27;City&#x27;</span>,<span class="string">&#x27;State&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>wanted_values</code> - select the columns <strong>want</strong> to show </li>
+<li><code>df.drop</code> - select the columns <strong>don’t want</strong> to show</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/becoze/becozePictureHosting/main/blogPost/pythonExcel/lessColumn.png" alt="addHeader"></p>
+<h2 id="Filter-data"><a href="#Filter-data" class="headerlink" title="Filter data"></a>Filter data</h2><p>This case we want to filter the data with First name <em>Stephen</em> who live in <em>SomeTown</em>.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">&#x27;Names.csv&#x27;</span>, header=<span class="literal">None</span>)	<span class="comment"># load csv file</span></span><br><span class="line">df_csv.columns = [<span class="string">&#x27;First&#x27;</span>,<span class="string">&#x27;Last&#x27;</span>,<span class="string">&#x27;Address&#x27;</span>,<span class="string">&#x27;City&#x27;</span>,<span class="string">&#x27;State&#x27;</span>,<span class="string">&#x27;Postcode&#x27;</span>,<span class="string">&#x27;Income&#x27;</span>]</span><br><span class="line">df_filter = df.loc[(df[<span class="string">&#x27;City&#x27;</span>] == <span class="string">&#x27;SomeTown&#x27;</span>) &amp; (df[<span class="string">&#x27;First&#x27;</span>] == <span class="string">&#x27;Stephen&#x27;</span>)]</span><br></pre></td></tr></table></figure>
+
+<p>Filter judgment has tow part </p>
+<ul>
+<li><p><code>(df[&#39;City&#39;] == &#39;SomeTown&#39;)</code> - find all ‘SomeTown’ in ‘City’ column </p>
+</li>
+<li><p><code>(df[&#39;First&#39;] == &#39;Stephen&#39;)</code> - find all ‘Stephen’ in ‘First’ column</p>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/becoze/becozePictureHosting/main/blogPost/pythonExcel/filter.png" alt="filter"></p>
+<h2 id="Apply-Logical-expression-on-data"><a href="#Apply-Logical-expression-on-data" class="headerlink" title="Apply Logical expression on data"></a>Apply Logical expression on data</h2><p>Apply filter using one line of code of <code>if()...else...</code> function, and store output in a new named column. </p>
+<blockquote>
+<p>To do the same thing, Microsoft Excel requre more effort, time and understand. </p>
+<p>You need select “Sort and filter” –&gt; “customer sort” –&gt; select data range –&gt; select output range –&gt; define logical filter …</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">&#x27;Names.csv&#x27;</span>, header=<span class="literal">None</span>)	<span class="comment"># load csv file</span></span><br><span class="line">df_csv.columns = [<span class="string">&#x27;First&#x27;</span>,<span class="string">&#x27;Last&#x27;</span>,<span class="string">&#x27;Income&#x27;</span>]</span><br><span class="line">df[<span class="string">&#x27;Tax %&#x27;</span>] = df[<span class="string">&#x27;Income&#x27;</span>].apply(<span class="keyword">lambda</span> x: <span class="number">.15</span> <span class="keyword">if</span> <span class="number">10000</span>&lt;x&lt;<span class="number">40000</span> <span class="keyword">else</span> <span class="number">.2</span> <span class="number">40001</span>&lt;x&lt;<span class="number">80000</span> <span class="keyword">else</span> <span class="number">.25</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>df[‘Tax %’]&#96; - create a new column call ‘Tax %’, and store calculate value for each people&#x2F;unit.</p>
+</li>
+<li><p><code>df[&#39;Income&#39;].apply(...)</code> - with ‘Income’, apply following function …</p>
+<ul>
+<li><p><code>lambda x</code> - x represent different ‘Income’ for each people&#x2F;unit</p>
+</li>
+<li><p><code>.15 if 10000&lt;x&lt;40000</code> - output 15% if ‘Income’ is between 10000 ~ 40000 </p>
+</li>
+<li><p><code>else .2 40000&lt;x&lt;80000</code> - output 20% if ‘Income’ is between 40001 ~ 80000 </p>
+</li>
+<li><p><code>else .25</code> - output 25% beyond 80000</p>
+<p><img src="https://raw.githubusercontent.com/becoze/becozePictureHosting/main/blogPost/pythonExcel/logicalEx.png" alt="logicalEx"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Calculate-data"><a href="#Calculate-data" class="headerlink" title="Calculate data"></a>Calculate data</h2><p>Simple calculation, one column multiple other column and create a new column to save the output. </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">&#x27;Names.csv&#x27;</span>, header=<span class="literal">None</span>)	<span class="comment"># load csv file</span></span><br><span class="line">df_csv.columns = [<span class="string">&#x27;First&#x27;</span>,<span class="string">&#x27;Last&#x27;</span>,<span class="string">&#x27;Income&#x27;</span>]</span><br><span class="line">df[<span class="string">&#x27;Taxes Owed&#x27;</span>] = df[<span class="string">&#x27;Income&#x27;</span>] * df[<span class="string">&#x27;Tax %&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/becoze/becozePictureHosting/main/blogPost/pythonExcel/calculate.png" alt="calculate"></p>
+<h2 id="Simple-Classification-data-analysis"><a href="#Simple-Classification-data-analysis" class="headerlink" title="Simple Classification data analysis"></a>Simple Classification data analysis</h2><p>We classification&#x2F;grouping according to “Test column”, which is “True” and “False”, and calculate the mean value for “Income”, “Tax %” and “Taxes Owned”. </p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">&#x27;Names.csv&#x27;</span>, header=<span class="literal">None</span>)	<span class="comment"># load csv file</span></span><br><span class="line">df_csv.columns = [<span class="string">&#x27;First&#x27;</span>,<span class="string">&#x27;Last&#x27;</span>,<span class="string">&#x27;Income&#x27;</span>,<span class="string">&#x27;Tax %&#x27;</span>,<span class="string">&#x27;Test Column&#x27;</span>]</span><br><span class="line">df.drop = [<span class="string">&#x27;First&#x27;</span>,<span class="string">&#x27;Last&#x27;</span>]</span><br><span class="line">df.groupby([<span class="string">&#x27;Test Column&#x27;</span>]).mean()</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/becoze/becozePictureHosting/main/blogPost/pythonExcel/classAna.png" alt="classAna"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:liyuanliang20@outlook.com">Becoze</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://becoze.github.io/2022/05/07/Ptyhon%20x%20Excel/">https://becoze.github.io/2022/05/07/Ptyhon%20x%20Excel/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Tutorial/">Tutorial</a><a class="post-meta__tags" href="/tags/Python/">Python</a><a class="post-meta__tags" href="/tags/Excel/">Excel</a></div><div class="post_share"><div class="social-share" data-image="https://raw.githubusercontent.com/becoze/becozePictureHosting/main/blogPost/pythonExcel/pythonExcel.png" data-sites="facebook,twitter,linkedin,wechat"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2022/03/02/Hexo%20Website%20Log%20P2/"><img class="prev-cover" src="https://raw.githubusercontent.com/becoze/becozePictureHosting/main/blogPost/hexoDevLog/hexoLogo.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">HexoBlog Development Log (Part 2/4)</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2022/03/01/Hexo%20Website%20Log%20P1/" title="HexoBlog Development Log (Part 1/4)"><img class="cover" src="https://raw.githubusercontent.com/becoze/becozePictureHosting/main/blogPost/hexoDevLog/hexoLogo.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-01</div><div class="title">HexoBlog Development Log (Part 1/4)</div></div></a></div><div><a href="/2022/03/02/Hexo%20Website%20Log%20P2/" title="HexoBlog Development Log (Part 2/4)"><img class="cover" src="https://raw.githubusercontent.com/becoze/becozePictureHosting/main/blogPost/hexoDevLog/hexoLogo.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-02</div><div class="title">HexoBlog Development Log (Part 2/4)</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raw.githubusercontent.com/becoze/becozePictureHosting/main/img/profile_img.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Becoze</div><div class="author-info__description">About me <br> Name - Becoze, Nick or Liyuan Liang. <br> Language - English, Mandarin, Cantonese. <br> <i class='fas fa-map-marker-alt'></i> Sydney, NSW</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">4</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">9</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/becoze" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:liyuanliang20@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://www.linkedin.com/in/liyuan-liang-24b0b3169/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Please use <i class='fas fa-adjust'></i>, <i class='fas fa-book-open'></i> and <i class='fas fa-arrows-alt-h'></i> functions at bottom-right and <i class='fas fa-search'></i> function at top-right for better reading.</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Install-Python-Interpreter"><span class="toc-number">1.</span> <span class="toc-text">Install Python Interpreter</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Python-%E2%80%9CPandas%E2%80%9D-Basic"><span class="toc-number">2.</span> <span class="toc-text">Python “Pandas” Basic</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Install-Pandas"><span class="toc-number">2.1.</span> <span class="toc-text">Install Pandas</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Import-%E2%80%9CPandas%E2%80%9D"><span class="toc-number">2.2.</span> <span class="toc-text">Import “Pandas”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Loading-and-saving-data"><span class="toc-number">2.3.</span> <span class="toc-text">Loading and saving data</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Python-%E2%80%9CPandas%E2%80%9D-in-practices"><span class="toc-number">3.</span> <span class="toc-text">Python “Pandas” in practices</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Add-header-for-data-sheet"><span class="toc-number">3.1.</span> <span class="toc-text">Add header for data sheet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#View-number-of-column-selectively"><span class="toc-number">3.2.</span> <span class="toc-text">View number of column selectively</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Filter-data"><span class="toc-number">3.3.</span> <span class="toc-text">Filter data</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Apply-Logical-expression-on-data"><span class="toc-number">3.4.</span> <span class="toc-text">Apply Logical expression on data</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Calculate-data"><span class="toc-number">3.5.</span> <span class="toc-text">Calculate data</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Simple-Classification-data-analysis"><span class="toc-number">3.6.</span> <span class="toc-text">Simple Classification data analysis</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background: linear-gradient( 135deg, #3C8CE7, #94C4FF);"><div id="footer-wrap"><div class="copyright">&copy;2022 By Becoze</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"></div><div id="rightside-config-show"><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button><button id="chat_btn" type="button" title="Chat"><i class="fas fa-sms"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Local search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script>(function(d, w, c) {
+    w.ChatraID = 'wLpmCXny3ffpoM3To';
+    var s = d.createElement('script');
+    w[c] = w[c] || function() {
+        (w[c].q = w[c].q || []).push(arguments);
+    };
+    s.async = true;
+    s.src = 'https://call.chatra.io/chatra.js';
+    if (d.head) d.head.appendChild(s);
+})(document, window, 'Chatra');
+
+if (true) {
+  var chatBtnFn = () => {
+    var chatBtn = document.getElementById("chat_btn")
+    chatBtn.addEventListener("click", function(){
+      Chatra('openChat')
+    });
+  }
+  chatBtnFn()
+} else {
+  if (true) {
+    function chatBtnHide () {
+      Chatra('hide')
+    }
+    function chatBtnShow () {
+      Chatra('show')
+    }
+  }
+}</script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
